@@ -1,0 +1,134 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.local
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Security scans and reports
+*penetration_test_report.md
+strix_runs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+tailwindcss-*.log
+firebase-debug.log
+firestore-debug.log
+pglite-debug.log
+
+# Build artifacts
+dist/
+build/
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Firebase
+.firebase/
+.firebase/
+.firebaserc
+firebase-debug.log
+firestore-debug.log
+
+# Functions build
+functions/lib/
+functions/node_modules/
+
+# PWA
+dist/
+registerSW.js
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Vite
+.vite/
+
+# PWA Workbox
+workbox-*.js
+
+# Turbo
+.turbo/
+
+# Vercel
+.vercel
+
+# Netlify
+.netlify
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Demo/unused files
+src/features/history/services/demoHistoryService.ts
+src/features/goals/hooks/useSidebarGoalProgress.ts
+src/features/tasks/hooks/useSidebarTaskProgress.ts
+src/shared/components/ui/InstallPrompt.tsx
+src/shared/components/ui/Label.tsx
+src/shared/components/ui/Switch.tsx
+.env.example
+
+# Tailwind
+tailwindcss-*.log
+
+# Firebase emulators
+.firebase/
+firestore-debug.log
+firebase-debug.log
+
+# Debug logs
+*.debug.log
+debug.log
+
+# Editor
+*.vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# PWA
+public/sw.js
+public/workbox-*.js
+
+# Pglite
+pglite-debug.log
+
+# Tool output
+graphify-out/

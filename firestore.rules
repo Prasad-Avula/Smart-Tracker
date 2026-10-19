@@ -1,0 +1,49 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection – only the owner may read/write
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Tasks
+    match /tasks/{taskId} {
+      allow read, update: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create:       if request.auth != null && request.auth.uid == request.resource.data.userId;
+      allow delete:       if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+
+    // Task status
+    match /taskStatus/{statusId} {
+      allow read, update: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create:       if request.auth != null && request.auth.uid == request.resource.data.userId;
+      allow delete:       if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+
+    // Goals
+    match /goals/{goalId} {
+      allow read, update: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create:       if request.auth != null && request.auth.uid == request.resource.data.userId;
+      allow delete:       if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+
+    // Goal status
+    match /goalStatus/{statusId} {
+      allow read, update: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create:       if request.auth != null && request.auth.uid == request.resource.data.userId;
+      allow delete:       if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+
+    // Daily history – immutable, read only
+    match /dailyHistory/{historyId} {
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+    }
+
+    // Goal history – immutable, read only
+    match /goalHistory/{historyId} {
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+    }
+  }
+}
